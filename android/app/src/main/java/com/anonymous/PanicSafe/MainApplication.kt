@@ -1,4 +1,4 @@
-package com.panicsafe
+package com.anonymous.PanicSafe
 
 import android.app.Application
 import android.content.res.Configuration
