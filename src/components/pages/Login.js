@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { auth } from "../../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import styles from "../styles/styles";
+import styles from "./styles";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -16,9 +16,7 @@ const Login = ({ navigation }) => {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      alert(
-        "Todos los campos son obligatorios. Por favor, complete el formulario."
-      );
+      alert("Todos los campos son obligatorios. Por favor, complete el formulario.");
       return;
     }
 
@@ -36,13 +34,11 @@ const Login = ({ navigation }) => {
             errorMessage = "Correo electrónico inválido.";
             break;
           case "auth/user-not-found":
-            errorMessage =
-              "No se encontró una cuenta con este correo. Regístrese primero.";
+            errorMessage = "No se encontró una cuenta con este correo. Regístrese primero.";
             break;
           case "auth/wrong-password":
           case "auth/invalid-credential":
-            errorMessage =
-              "Correo o contraseña incorrectos. Inténtelo de nuevo.";
+            errorMessage = "Correo o contraseña incorrectos. Inténtelo de nuevo.";
             break;
           case "auth/missing-password":
             errorMessage = "Debe ingresar una contraseña.";
@@ -54,7 +50,7 @@ const Login = ({ navigation }) => {
             errorMessage = `Error: ${error.message}`;
         }
       }
-
+      
       alert(errorMessage);
     }
   };
